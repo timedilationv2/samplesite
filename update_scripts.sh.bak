@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+# Updated on Sun Mar 23 01:20:48 PDT 2025
+# This script is maintained by [Your Name]
+
+# This script updates all .sh files in the repository.
+# It backs up each file (with a .bak extension) before modifying it.
+
+# Define the new shebang line and header comment.
+NEW_SHEBANG='#!/usr/bin/env bash'
+NEW_HEADER="# Updated on $(date)\n# This script is maintained by [Your Name]"
+
+# Find all .sh files in the current directory (and subdirectories)
+find . -type f -name "*.sh" | while read -r file; do
+    echo "Updating $file ..."
+    
+    # Make a backup of the original file
+    cp "$file" "$file.bak"
+    
+    # Check if the file already has a shebang (first line starts with #!)
+    if head -n 1 "$file" | grep -q "^#!"; then
+        # Replace the existing shebang with the new one
+        tail -n +2 "$file" > "$file.tmp"
+        {
+            echo -e "$NEW_SHEBANG"
+            echo -e "$NEW_HEADER"
+            echo
+            cat "$file.tmp"
+        } > "$file"
+        rm "$file.tmp"
+    else
+        # No shebang exists: simply add the new shebang and header at the top.
+        cat <<EOF > "$file.tmp"
+$NEW_SHEBANG
+$NEW_HEADER
+
+EOF
+        cat "$file" >> "$file.tmp"
+        mv "$file.tmp" "$file"
+    fi
+done
+
+echo "Script update complete."
+
