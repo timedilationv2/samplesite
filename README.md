@@ -83,11 +83,11 @@ License
 This repository is licensed under the MIT License.
 Contact
 
-For questions or feedback, please contact [Your Name] at [your.email@example.com].
+For questions or feedback, texscrub@gmai..
+
+-AK
 
 ---
-
-### Simply save this content into your README.md file, commit, and push your changes. This updated README provides additional links and more detailed sections to guide users through your repository. Let me know if you need further adjustments!
 
 
 
