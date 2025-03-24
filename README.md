@@ -1,4 +1,4 @@
-# 🧠 SampleSite: Modular Static Site + Documentation Engine
+# (@timedilationV2): SampleSite: Modular Static S + Documentation Engine 
 
 > Powered by Markdown, Confluence Integration, PostgreSQL Logging & GitHub Actions
 
